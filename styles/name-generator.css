@@ -1,0 +1,275 @@
+/* Name Generator Styles - FoundryVTT Native (Zero Custom Colors) */
+
+.name-generator-dialog {
+  min-width: 600px;
+  min-height: 500px;
+}
+
+.name-generator-dialog .window-content {
+  padding: 0;
+}
+
+.name-generator-form {
+  padding: 1rem;
+  height: 100%;
+}
+
+.name-generator-form-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.name-generator-form-header i {
+  font-size: 2.5em;
+  margin-bottom: 0.5rem;
+}
+
+.name-generator-form-header h2 {
+  margin: 0.5rem 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.name-generator-form-description {
+  font-style: italic;
+  margin: 0;
+}
+
+.name-generator-form-section {
+  margin-bottom: 1.5rem;
+}
+
+.name-generator-form-group {
+  margin-bottom: 1rem;
+}
+
+.name-generator-form-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.name-generator-form-group label i {
+  margin-right: 0.5rem;
+}
+
+.name-generator-nation-select {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border: 1px solid;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+.name-generator-nation-select:focus {
+  outline: none;
+  box-shadow: 0 0 5px;
+}
+
+/* Gender Selection Styles */
+.name-generator-gender-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.name-generator-radio-group {
+  flex: 1;
+  min-width: 10px;
+}
+
+.name-generator-radio-group input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.name-generator-radio-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: normal;
+  text-align: center;
+}
+
+.name-generator-radio-label:hover {
+  transform: translateY(-1px);
+}
+
+.name-generator-radio-group input[type="radio"]:checked + .name-generator-radio-label {
+  font-weight: bold;
+}
+
+.name-generator-radio-label i {
+  margin-right: 0.5rem;
+  font-size: 1.1em;
+}
+
+/* Names Container */
+.name-generator-names-container {
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 1rem;
+  min-height: 300px;
+}
+
+.name-generator-names-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.name-generator-name-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border: 1px solid;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.name-generator-name-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px;
+}
+
+.name-generator-name-item i {
+  margin-right: 0.75rem;
+  font-size: 1.2em;
+}
+
+.name-generator-name-text {
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.name-generator-selected {
+  transform: scale(1.02) !important;
+  box-shadow: 0 0 8px !important;
+}
+
+.name-generator-no-names {
+  text-align: center;
+  font-style: italic;
+  padding: 2rem;
+  font-size: 1.1em;
+  grid-column: 1 / -1;
+}
+
+/* Chat Result Styles */
+.name-generator-chat-result {
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 1rem;
+}
+
+.name-result-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid;
+}
+
+.name-result-header i {
+  margin-right: 0.5rem;
+  font-size: 1.2em;
+}
+
+.name-result-header h3 {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.name-result-content {
+  text-align: center;
+}
+
+.selected-name {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.selected-name i {
+  margin-right: 0.5rem;
+}
+
+.nation-info {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+/* Dialog Buttons */
+.name-generator-dialog .dialog-buttons {
+  border-top: 1px solid;
+}
+
+.name-generator-dialog .dialog-buttons button {
+  border: 1px solid;
+}
+
+.name-generator-dialog .dialog-buttons button:hover {
+  transform: translateY(-1px);
+}
+
+.name-generator-dialog .dialog-buttons button[data-button="generate"] {
+  font-weight: bold;
+}
+
+/* Scrollbar Styling */
+.name-generator-names-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.name-generator-names-list::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+
+.name-generator-names-list::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .name-generator-dialog {
+    min-width: 400px;
+  }
+  
+  .name-generator-gender-options {
+    flex-direction: column;
+  }
+  
+  .name-generator-names-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Form Field Consistency */
+.name-generator-dialog .form-group {
+  margin-bottom: 1rem;
+}
+
+.name-generator-dialog .form-fields {
+  margin-bottom: 1rem;
+}
+
+/* Window Header Consistency */
+.name-generator-dialog .window-header {
+  border-bottom: 1px solid;
+}
+
+.name-generator-dialog .window-title {
+  font-weight: bold;
+}
