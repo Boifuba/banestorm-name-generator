@@ -75,6 +75,37 @@ export class NameGenerator {
   }
 
   /**
+   * Apply selected name to the selected token and its actor
+   */
+  static async applyNameToActorAndToken(name) {
+    try {
+      const selectedToken = canvas.tokens.controlled[0];
+      if (!selectedToken) {
+        ui.notifications.warn("No token selected.");
+        return;
+      }
+
+      const actor = selectedToken.actor;
+      if (!actor) {
+        ui.notifications.warn("Selected token has no actor.");
+        return;
+      }
+
+      // Update actor name
+      await actor.update({ name });
+
+      // Update token name (optional, you can remove this if not desired)
+      await selectedToken.document.update({ name });
+
+      ui.notifications.info(`Name '${name}' applied to actor and token.`);
+      console.log('Name Generator | Name applied:', name);
+    } catch (error) {
+      console.error('Name Generator | Error applying name to actor/token:', error);
+      ui.notifications.error('Error applying name to actor/token');
+    }
+  }
+
+  /**
    * Get the module's API from game.modules
    * This is a convenience method for other modules to interact with this one
    */
@@ -83,3 +114,4 @@ export class NameGenerator {
     return module ? module.api : null;
   }
 }
+

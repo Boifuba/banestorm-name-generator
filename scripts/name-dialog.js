@@ -67,6 +67,16 @@ export class NameDialog extends Dialog {
               <div class="name-generator-no-names">${game.i18n.localize('NAME_GENERATOR.GenerateNames')}</div>
             </div>
           </div>
+
+          <div class="name-generator-selected-name" id="selected-name-section" style="display: none;">
+            <div class="selected-name-display">
+              <span id="selected-name-text"></span>
+            </div>
+            <button type="button" id="apply-name-btn" class="name-generator-apply-btn">
+              <i class="fas fa-check"></i>
+              ${game.i18n.localize('NAME_GENERATOR.ApplyName')}
+            </button>
+          </div>
         </form>
       </div>
     `;
@@ -89,7 +99,7 @@ export class NameDialog extends Dialog {
         },
       },
       default: "generate",
-          classes: ["name-generator-dialog"],
+      classes: ["name-generator-dialog"],
       resizable: true,
       close: () => {
         console.log('Name Generator | Dialog closed');
@@ -98,6 +108,7 @@ export class NameDialog extends Dialog {
 
     this.currentNation = Object.keys(NAME_DATA)[0];
     this.currentGender = 'both';
+    this.selectedName = null;
   }
 
   activateListeners(html) {
@@ -120,6 +131,14 @@ export class NameDialog extends Dialog {
       event.preventDefault();
       event.stopPropagation();
       this._generateNames(html);
+    });
+
+    // Handle apply name button
+    html.find('#apply-name-btn').on('click', (event) => {
+      event.preventDefault();
+      if (this.selectedName) {
+        NameGenerator.applyNameToActorAndToken(this.selectedName);
+      }
     });
 
     // Auto-generate names on dialog open
@@ -201,17 +220,24 @@ export class NameDialog extends Dialog {
     namesList.find('.name-generator-name-item').on('click', (event) => {
       const nameElement = $(event.currentTarget);
       const selectedName = nameElement.data('name');
-      const selectedNation = nameElement.data('nation');
-      const selectedGender = nameElement.data('gender');
 
-      // Visual feedback
+      // Remove previous selection
+      namesList.find('.name-generator-name-item').removeClass('name-generator-selected');
+      
+      // Add selection to clicked item
       nameElement.addClass('name-generator-selected');
-      setTimeout(() => {
-        nameElement.removeClass('name-generator-selected');
-      }, 300);
 
-      // Send to chat
-      NameGenerator.sendNameToChat(selectedName, selectedNation, selectedGender);
+      // Update selected name
+      this.selectedName = selectedName;
+      
+      // Show selected name section
+      const selectedSection = html.find('#selected-name-section');
+      const selectedNameText = html.find('#selected-name-text');
+      
+      selectedNameText.text(selectedName);
+      selectedSection.show();
+
+      console.log('Name Generator | Name selected:', selectedName);
     });
   }
 }

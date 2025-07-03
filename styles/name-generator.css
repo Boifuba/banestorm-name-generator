@@ -66,7 +66,6 @@
 
 .name-generator-nation-select:focus {
   outline: none;
-  box-shadow: 0 0 5px;
 }
 
 /* Gender Selection Styles */
@@ -97,10 +96,6 @@
   transition: all 0.2s ease;
   font-weight: normal;
   text-align: center;
-}
-
-.name-generator-radio-label:hover {
-  transform: translateY(-1px);
 }
 
 .name-generator-radio-group input[type="radio"]:checked + .name-generator-radio-label {
@@ -138,11 +133,6 @@
   transition: all 0.2s ease;
 }
 
-.name-generator-name-item:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px;
-}
-
 .name-generator-name-item i {
   margin-right: 0.75rem;
   font-size: 1.2em;
@@ -154,8 +144,7 @@
 }
 
 .name-generator-selected {
-  transform: scale(1.02) !important;
-  box-shadow: 0 0 8px !important;
+  font-weight: bold;
 }
 
 .name-generator-no-names {
@@ -164,6 +153,33 @@
   padding: 2rem;
   font-size: 1.1em;
   grid-column: 1 / -1;
+}
+
+/* Selected Name Section */
+.name-generator-selected-name {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.selected-name-display {
+  margin-bottom: 1rem;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.name-generator-apply-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.name-generator-apply-btn i {
+  margin-right: 0.5rem;
 }
 
 /* Chat Result Styles */
@@ -218,10 +234,6 @@
 
 .name-generator-dialog .dialog-buttons button {
   border: 1px solid;
-}
-
-.name-generator-dialog .dialog-buttons button:hover {
-  transform: translateY(-1px);
 }
 
 .name-generator-dialog .dialog-buttons button[data-button="generate"] {
