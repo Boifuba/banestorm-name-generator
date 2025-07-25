@@ -5,25 +5,22 @@
 import { NameDialog } from './name-dialog.js';
 
 export class NameGenerator {
-  static MODULE_NAME = "name-generator";
+  static MODULE_NAME = "banestorm-name-generator";
 
   constructor() {
     this.dialog = null;
-    console.log('Name Generator | Instance created');
   }
 
   /**
    * Open the name generator dialog
    */
   openDialog() {
-    console.log('Name Generator | Opening dialog');
     try {
       if (this.dialog) {
         this.dialog.close();
       }
       this.dialog = new NameDialog();
       this.dialog.render(true);
-      console.log('Name Generator | Dialog opened successfully');
     } catch (error) {
       console.error('Name Generator | Error opening dialog:', error);
       ui.notifications.error('Error opening Name Generator dialog');
@@ -67,7 +64,6 @@ export class NameGenerator {
       });
 
       ui.notifications.info(message);
-      console.log('Name Generator | Name sent to chat:', name, nation, gender);
     } catch (error) {
       console.error('Name Generator | Error sending name to chat:', error);
       ui.notifications.error('Error sending name to chat');
@@ -98,7 +94,6 @@ export class NameGenerator {
       await selectedToken.document.update({ name });
 
       ui.notifications.info(`Name '${name}' applied to actor and token.`);
-      console.log('Name Generator | Name applied:', name);
     } catch (error) {
       console.error('Name Generator | Error applying name to actor/token:', error);
       ui.notifications.error('Error applying name to actor/token');
@@ -110,8 +105,7 @@ export class NameGenerator {
    * This is a convenience method for other modules to interact with this one
    */
   static getAPI() {
-    const module = game.modules.get('name-generator');
+    const module = game.modules.get('banestorm-name-generator');
     return module ? module.api : null;
   }
 }
-

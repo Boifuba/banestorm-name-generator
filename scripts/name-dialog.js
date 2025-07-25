@@ -101,9 +101,7 @@ export class NameDialog extends Dialog {
       default: "generate",
       classes: ["name-generator-dialog"],
       resizable: true,
-      close: () => {
-        console.log('Name Generator | Dialog closed');
-      }
+      close: () => {}
     });
 
     this.currentNation = Object.keys(NAME_DATA)[0];
@@ -236,8 +234,6 @@ export class NameDialog extends Dialog {
       
       selectedNameText.text(selectedName);
       selectedSection.show();
-
-      console.log('Name Generator | Name selected:', selectedName);
     });
   }
 }
