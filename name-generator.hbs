@@ -1,0 +1,127 @@
+<form class="flexcol name-generator-wrapper">
+  <!-- Mode Toggle Buttons -->
+  <div class="form-group name-generator-section">
+    <div class="form-fields name-generator-group">
+      <label class="form-label">
+        <i class="fas fa-toggle-on"></i>
+        Generation Type:
+      </label>
+      <div class="form-fields flexrow">
+        <button type="button" class="btn {{#if (eq currentMode 'people')}}btn-primary{{else}}btn-secondary{{/if}}" 
+                data-mode="people">
+          <i class="fas fa-user"></i>
+          People Names
+        </button>
+        <button type="button" class="btn {{#if (eq currentMode 'places')}}btn-primary{{else}}btn-secondary{{/if}}" 
+                data-mode="places">
+          <i class="fas fa-city"></i>
+          Place Names
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {{#if (eq currentMode 'people')}}
+  <!-- People Names Section -->
+  <div class="form-group name-generator-section">
+    <div class="form-fields name-generator-group">
+      <label for="nation-select" class="form-label">
+        <i class="fas fa-flag"></i>
+        Select Nation:
+      </label>
+      <select id="nation-select" class="form-control name-generator-select">
+        {{#each nations}}
+        <option value="{{value}}" {{#if (eq ../selectedNation value)}}selected{{/if}}>
+          {{label}}
+        </option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="form-fields name-generator-group">
+      <label class="form-label">
+        <i class="fas fa-venus-mars"></i>
+        Select Gender:
+      </label>
+      <div class="form-fields flexrow">
+        {{#each genders}}
+        <button type="button" class="btn {{#if (eq ../selectedGender value)}}btn-primary{{else}}btn-secondary{{/if}}" 
+                data-gender="{{value}}">
+          <i class="{{icon}}"></i>
+          {{label}}
+        </button>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="form-fields name-generator-group">
+      <button type="button" id="generate-btn" class="btn btn-primary" style="width: 100%;">
+        <i class="fas fa-dice"></i>
+        Generate Names
+      </button>
+    </div>
+  </div>
+
+  <div class="form-group name-generator-section">
+    <div class="" style="height: 300px; border: 1px solid var(--color-border-light-primary);">
+        {{#if generatedNames}}
+          {{#each generatedNames}}
+          <button type="button" class="btn name-item" data-name="{{name}}" style="width: 100%; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+            <i class="{{icon}}"></i>
+            <span style="font-weight: 500;">{{name}}</span>
+          </button>
+          {{/each}}
+        {{else}}
+          <div class="notification info" style="margin: 1rem; text-align: center;">
+            <i class="fas fa-info-circle"></i>
+            Click "Generate Names" to create a list of names
+          </div>
+        {{/if}}
+    </div>
+  </div>
+  {{/if}}
+
+  {{#if (eq currentMode 'places')}}
+  <!-- Places Names Section - SIMPLIFICADO -->
+  <div class="form-group name-generator-section">
+    <div class="form-fields name-generator-group">
+      <label for="place-nation-select" class="form-label">
+        <i class="fas fa-map"></i>
+        Select Nation:
+      </label>
+      <select id="place-nation-select" class="form-control name-generator-select">
+        {{#each placeNations}}
+        <option value="{{value}}" {{#if (eq ../selectedPlaceNation value)}}selected{{/if}}>
+          {{label}}
+        </option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="form-fields name-generator-group">
+      <button type="button" id="generate-places-btn" class="btn btn-primary" style="width: 100%;">
+        <i class="fas fa-dice"></i>
+        Generate Place Names
+      </button>
+    </div>
+  </div>
+
+  <div class="form-group name-generator-section">
+    <div class="" style="height: 300px; border: 1px solid var(--color-border-light-primary);">
+        {{#if generatedPlaces}}
+          {{#each generatedPlaces}}
+          <button type="button" class="btn place-item" data-name="{{name}}" data-type="{{type}}" style="width: 100%; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+            <i class="{{icon}}"></i>
+            <span style="font-weight: 500;">{{name}}</span>
+          </button>
+          {{/each}}
+        {{else}}
+          <div class="notification info" style="margin: 1rem; text-align: center;">
+            <i class="fas fa-info-circle"></i>
+            Click "Generate Place Names" to create a list of places
+          </div>
+        {{/if}}
+    </div>
+  </div>
+  {{/if}}
+</form>

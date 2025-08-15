@@ -2,9 +2,9 @@
   "id": "banestorm-name-generator",
   "title": "Banestorm Name Generator",
   "description": "Generate names based on different fictional nations and cultures for the Banestorm setting.",
-  "version": "0.0.4",
+  "version": "0.2.1",
   "compatibility": {
-    "minimum": "11",
+    "minimum": "13",
     "verified": "13"
   },
   "authors": [
@@ -13,33 +13,13 @@
     }
   ],
   "esmodules": [
-    "scripts/main.js",
-    "scripts/name-data.js",
-    "scripts/name-dialog.js",
-    "scripts/name-generator.js"
+    "main.js",
+    "name-generator-dialog.js",
+    "name-data.js",
+    "places-data.js"
   ],
   "styles": [
-    "styles/name-generator.css"
-  ],
-  "packs": [
-    {
-      "name": "banestorm-name-generator",
-      "label": "Banestorm Name Generator",
-      "path": "packs/banestorm-name-generator",
-      "type": "Macro",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      },
-            "flags": {}
-    }
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
+    "styles.css"
   ],
   "url": "https://github.com/boifuba/banestorm-name-generator",
   "manifest": "https://github.com/Boifuba/banestorm-name-generator/releases/download/packs/module.json",

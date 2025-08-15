@@ -1,0 +1,42 @@
+/* Banestorm Name Generator Styles - Using Foundry VTT Native Classes */
+
+/* Dialog wrapper - usando classes nativas do Foundry */
+.name-generator-wrapper {
+  padding: 4px;
+}
+
+/* Seções usando flexcol nativo */
+.name-generator-section {
+}
+
+/* Grupos de form usando classes nativas */
+.name-generator-group {
+  margin-bottom: 0.75rem;
+}
+
+/* Labels usando form-label nativo */
+.name-generator-group .form-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 20px 0;
+}
+
+/* Select usando form-control nativo do Foundry */
+.name-generator-select {
+  width: 100%;
+}
+
+/* Container de botões de gênero usando form-fields nativo */
+.name-generator-group .form-fields {
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Radio buttons escondidos */
+.name-generator-radio {
+  display: none;
+}
+.name-generator-wrapper button {
+ height: 40px;
+}
