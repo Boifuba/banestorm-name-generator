@@ -2,14 +2,14 @@
   "id": "banestorm-name-generator",
   "title": "Banestorm Name Generator",
   "description": "Generate names based on different fictional nations and cultures for the Banestorm setting.",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
   },
   "authors": [
     {
-      "name": "Custom Module"
+      "name": "boifubá"
     }
   ],
   "esmodules": [
